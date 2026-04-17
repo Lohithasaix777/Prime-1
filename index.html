@@ -1,19 +1,42 @@
-function primeNumbers(n) {
- let primes = [];
- for (let i = 2; i <= n; i++) {
-  let isPrime = true;
-  for (let j = 2; j <= Math.sqrt(i); j++) {
-   if (i % j === 0) {
-    isPrime = false;
-    break;
-   }
-  }
-  if (isPrime) {
-   primes.push(i);
-  }
- }
- return primes;
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Operations Program</title>
+</head>
 
-// Function call
-console.log(primeNumbers(20));
+<body>
+
+  <h2>Number Operations</h2>
+  <div id="output"></div>
+
+  <script>
+    let num = parseInt(prompt("Enter a number:"));
+    let result = "";
+
+    function primeNumbers(n) {
+      let primes = [];
+      for (let i = 2; i <= n; i++) {
+        let isPrime = true;
+
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+          if (i % j === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+
+        if (isPrime) {
+          primes.push(i);
+        }
+      }
+      return primes;
+    }
+
+    let primesList = primeNumbers(num);
+    result = "Prime numbers up to " + num + " are: " + primesList.join(", ");
+
+    document.getElementById("output").innerHTML = result;
+  </script>
+
+</body>
+</html>
